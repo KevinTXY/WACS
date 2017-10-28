@@ -21,7 +21,7 @@ body{
 
 }
 
-div#welcometext {
+#welcometext {
   background-color: #448AC9;
   width: 100%;
   position: relative;
@@ -36,5 +36,31 @@ h6{
   padding: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
+}
 
+
+.outerbox{
+  background-color: #e0dedc;
+  text-align: center;
+  height: 150px;
+  width: 600px;
+  border-radius: 10px;
+  align-content: center;
+  margin: 0 auto;
+}
+
+#pause{
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+#eye{
+  width: 150px;
+  height: 75px;
+  position: relative;
+}
+
+#confirm{
+  text-align: center;
 }
