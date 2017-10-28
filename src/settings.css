@@ -1,6 +1,10 @@
+
+body{
+    font-family: "Open Sans Light", "Helvetica Neue", sans-serif;
+}
+
 .grey{
   color:grey;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
   text-align: center;
 }
 
@@ -10,4 +14,27 @@
 
 #epi{
  display: inline;
+}
+
+.label{
+  margin-bottom: 0px;
+
+}
+
+div#welcometext {
+  background-color: #448AC9;
+  width: 100%;
+  position: relative;
+  margin: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  float: left;
+}
+
+h6{
+  color: grey;
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+
 }

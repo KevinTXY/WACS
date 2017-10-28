@@ -1,32 +1,41 @@
 <html>
 
-  <head>
-    <title> Settings </title>
-    <link rel="StyleSheet" href="settings.css"> </link>
-  </head>
+<head>
+  <title> Settings </title>
+  <link rel="StyleSheet" href="settings.css"> </link>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://example.com/js/">
 
-  <body>
-    <h1 class = "header"> Settings </h1>
-    <h3 class = "grey"> Enable any necessary features here based on your needs </h3>
-    <h3> Epilepsy GIF-Stop
+</head>
+
+  <div id = "welcometext">
+  <h1 class="header"> Settings </h1>
+</div>
+  <h3 class="grey"> Enable any necessary features here based on your needs </h3>
+  <h3 class = "label"> Epilepsy GIF-Stop
       <select id = "epi">
         <option value = "on"> Enabled </option>
-        <option value = "off"> Disabled </option>
+        <option value = "off" selected> Disabled </option>
       </select>
     </h3>
+    <h6> Automatically pauses GIFS and interrupts visually stimulating animations</h6>
 
 
 
-     <h3> Color Blindness Adjustments
+  <h3 class = "label"> Color Blindness Adjustments
       <select id = "cb">
         <option value = "on" id = "choice"> Enabled </option>
-        <option value = "off" id = "choice"> Disabled </option>
+        <option value = "off" id = "choice" selected> Disabled </option>
       </select>
     </h3>
+    <h6> Insert Text Here </h6>
 
-    <div id="status"></div>
-    <button id="save">Save</button>
-    <script src="settings.js"> </script>
 
-  </body>
+  </br>
+  <div id="status"></div>
+  <button id="save">Save</button>
+  <script src="settings.js">
+  </script>
+
+</body>
+
 </html>
