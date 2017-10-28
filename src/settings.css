@@ -10,6 +10,8 @@ body{
 
 .header{
   text-align: center;
+  font-weight: bold;
+  color: white;
 }
 
 #epi{
@@ -22,11 +24,12 @@ body{
 }
 
 #welcometext {
-  background-color: #448AC9;
+  background-color: rgb(66,133, 244);
   width: 100%;
   position: relative;
-  margin: 0px;
-  padding-left: 0px;
+  margin-top: -9px;
+  margin-left: -5px;
+  padding-left: 10px;
   padding-right: 0px;
   float: left;
 }
