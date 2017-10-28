@@ -67,3 +67,10 @@ h6{
 #confirm{
   text-align: center;
 }
+
+#cam{
+  margin-top: 10px;
+  width: 90px;
+  height: 90px;
+  position: relative;
+}
