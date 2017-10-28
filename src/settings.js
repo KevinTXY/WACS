@@ -1,7 +1,9 @@
 function save_options(){
-  var choice = document.getElementById('epi').value;
+  var epichoice = document.getElementById('epi').value;
+  var cbchoice = document.getElementById('cb').value;
   chrome.storage.sync.set({
-    mychoice: choice
+    myepichoice: epichoice,
+    mycbchoice: cbchoice
   }, function(){
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
@@ -13,9 +15,11 @@ function save_options(){
 
 function restore_options(){
   chrome.storage.sync.get({
-    mychoice: 'disabled'
+    myepichoice: 'disabled',
+    mycbchoice: 'disabled'
   }, function(items){
-  document.getElementById('epi').value = items.mychoice;
+  document.getElementById('epi').value = items.myepichoice;
+  document.getElementById('cb').value = items.mycbchoice;
   });
 }
 
