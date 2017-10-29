@@ -97,6 +97,18 @@ h6{
     width:100px;
     height: 100px;
     position: relative;
+  }
+
+  #save{
+    height: 36px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 2px;
+    background-color: rgb(66,133, 244);
+    color: white;
+    font-weight: bold;
+    border: 0px;
+
 
   }
 .sel{
