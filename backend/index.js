@@ -1,12 +1,14 @@
 const jimp = require('jimp');
 const express = require('express');
 const bodyParser = require('body-parser');
-const vision = require('node-cloud-vision-api')
+const vision = require('@google-cloud/vision')({
+    projectId: 'vision-api-test-arch-hacks',
+    keyFilename: './keyfile.json'
+  });
 const app = express();
 
 const testImg = './imgs/testimg.jpg'
 
-vision.init({ auth: 'AIzaSyCv6H7_xMSZThMwvqItUNlWlHvK-xGH4Pg' })
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -28,13 +30,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.listen(5000);
+app.listen(5000, () => console.log("Now live on http://localhost:5000"));
 
 app.post("/img", function (req, res) {
     console.log('Got an API img color correction call!');
     let imgName = new Date().getMilliseconds() + ".png";
     if (req.body != null) {
         let imgUrl = req.body.imgUrl;
+        if(imgUrl.charAt(0) == '/' && imgUrl.charAt(1) == '/'){
+            imgUrl = imgUrl.slice(2,imgUrl.length);
+        }
+        if(!imgUrl.includes("https://")) {
+            let https = "https://";
+            imgUrl = https.concat(imgUrl);
+        }
         jimp.read(imgUrl, function (err, image) {
             let newRed = 0, newGrn = 0, newBlue = 0, alpha = 0;
             if (err) throw err;
@@ -84,23 +93,21 @@ app.post('/imgLabel', (req, resp) => {
     let url = req.body.imgUrl;
     let imgLabel;
     console.log('Got API call to call the Google Vision API');
-    // construct parameters
-    const visReq = new vision.Request({
-        image: new vision.Image({
-            url: url
-        }),
-        features: [
-            new vision.Feature('LABEL_DETECTION', 10),
-        ]
-    });
-
-    // send single request
-    vision.annotate(visReq).then((res) => {
-        // handling response
-        resp.json(res.responses[0].labelAnnotations[0]);
-    }, (e) => {
-        console.log('Error: ', e)
-    });
+    if(url.charAt(0) == '/' && url.charAt(1) == '/'){
+        url = url.slice(2,url.length);
+    }
+    if(!url.includes("https://")) {
+        let https = "https://";
+        url = https.concat(url);
+    }
+    var image = {
+        source: {imageUri: url}
+      };
+      vision.labelDetection(image).then(response => {
+        resp.json(response[0].labelAnnotations[0]);
+      }).catch(err => {
+        console.error(err);
+      });
 });
 
 
