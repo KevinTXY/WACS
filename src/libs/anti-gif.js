@@ -1,3 +1,20 @@
+function restore_options(){
+  chrome.storage.sync.get({
+    gifstopchoice: 'off',
+  }, function(items){
+    var enabled = items.gifstopchoice
+    console.log(enabled);
+    if(enabled == "on"){
+      console.log(enabled);
+      run();
+  }
+  else{
+    return;
+  }
+  });
+}
+
+function run(){
 $('video').each(function(){
     $(this).get(0).pause();
     $(this).removeAttr("autoplay");
@@ -32,3 +49,5 @@ $(document).on('DOMNodeInserted', function (e) {
 
     });
 });
+}
+restore_options();
