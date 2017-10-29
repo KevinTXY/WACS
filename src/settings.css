@@ -32,6 +32,9 @@ body{
   padding-left: 10px;
   padding-right: 0px;
   float: left;
+  box-shadow: 0px 3px #e0dedc;
+  margin-bottom: 5px;
+
 }
 
 h6{

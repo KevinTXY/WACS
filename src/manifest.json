@@ -3,6 +3,7 @@
   "name": "For Lack of a Better Name",
   "version": "1.0.0",
   "options_page": "settings.html",
+  "icons": { "16": "icon.png"},
   "permissions": [
     "storage"
   ],
