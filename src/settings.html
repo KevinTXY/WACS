@@ -1,0 +1,65 @@
+<html>
+
+<head>
+  <title> Settings </title>
+  <link rel="StyleSheet" href="settings.css"> </link>
+</head>
+
+<div id="welcometext">
+  <h1 class="header"> Settings </h1>
+</div>
+<h3 class="grey"> Enable any necessary features here based on your needs </h3>
+
+
+<div class="outerbox">
+  <img id="pause" src="/resources/play.png" />
+  <h3 class="label"> Epilepsy GIF-Stop
+      <select class = "sel" id = "epi">
+        <option value = "on"> Enabled </option>
+        <option value = "off" selected> Disabled </option>
+      </select>
+    </h3>
+  <h6> Automatically pauses GIFS and interrupts visually stimulating animations</h6>
+</div>
+
+</br>
+</br>
+<div class="outerbox">
+  </br>
+  <img id="eye" src="/resources/eye.png" />
+  <h3 class="label"> Color Blindness Adjustments
+      <select class = "sel" id = "cb">
+        <option value = "on" id = "choice"> Enabled </option>
+        <option value = "off" id = "choice" selected> Disabled </option>
+      </select>
+    </h3>
+  <h6 id = "cbs"> Makes colors more identifiable for common types of colorblindness  </h6>
+</div>
+</br></br>
+
+
+<div class = "outerbox">
+  <img id="cam" src="/resources/cam.png" />
+  <h3 class = "label"> Sensitivity Filter
+    <input type = "text" id = "ii" value = "">
+    </select>
+  </h3>
+  <h6> Filter out images and text related to sensitive subjects (List Compatible) </h6>
+</div>
+
+
+
+
+</br>
+<div id="confirm">
+  <div id="status"></div>
+  <button id="save">Save</button>
+</div>
+<script src="/libs/jquery-3.2.1.min.js"></script>
+
+<script src="settings.js">
+</script>
+
+</body>
+
+</html>

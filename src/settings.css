@@ -1,0 +1,101 @@
+
+body{
+    font-family: "Open Sans Light", "Helvetica Neue", sans-serif;
+}
+
+.grey{
+  color:grey;
+  text-align: center;
+}
+
+.header{
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+#epi{
+ display: inline;
+}
+
+.label{
+  margin-bottom: 0px;
+
+}
+
+#welcometext {
+  background-color: rgb(66,133, 244);
+  width: 100%;
+  position: relative;
+  margin-top: -9px;
+  margin-left: -5px;
+  padding-left: 10px;
+  padding-right: 0px;
+  float: left;
+  box-shadow: 0px 3px #e0dedc;
+  margin-bottom: 5px;
+
+}
+
+h6{
+  color: grey;
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+
+.outerbox{
+  background-color: #e0dedc;
+  text-align: center;
+  height: 150px;
+  width: 600px;
+  border-radius: 5px;
+  align-content: center;
+  margin: 0 auto;
+  box-shadow: 3px 3px grey;
+
+}
+
+#pause{
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+#cbs{
+  margin-top: 5px;
+}
+#eye{
+  width: 150px;
+  height: 75px;
+  position: relative;
+}
+
+#confirm{
+  text-align: center;
+}
+
+#cam{
+  margin-top: 10px;
+  width: 90px;
+  height: 90px;
+  position: relative;
+}
+  #ii{
+    border-radius: 5px;
+    background-color: transparent;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: grey;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+.sel{
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  background-color: transparent;
+  font-weight: bold;
+  margin-left: 10px;
+}
