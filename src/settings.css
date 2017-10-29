@@ -47,9 +47,11 @@ h6{
   text-align: center;
   height: 150px;
   width: 600px;
-  border-radius: 10px;
+  border-radius: 5px;
   align-content: center;
   margin: 0 auto;
+  box-shadow: 3px 3px grey;
+
 }
 
 #pause{
@@ -57,7 +59,9 @@ h6{
   height: 100px;
   position: relative;
 }
-
+#cbs{
+  margin-top: 5px;
+}
 #eye{
   width: 150px;
   height: 75px;
@@ -73,4 +77,22 @@ h6{
   width: 90px;
   height: 90px;
   position: relative;
+}
+  #ii{
+    border-radius: 5px;
+    background-color: transparent;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: grey;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+.sel{
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  background-color: transparent;
+  font-weight: bold;
+  margin-left: 10px;
 }

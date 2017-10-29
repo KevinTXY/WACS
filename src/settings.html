@@ -14,7 +14,7 @@
 <div class="outerbox">
   <img id="pause" src="/resources/play.png" />
   <h3 class="label"> Epilepsy GIF-Stop
-      <select id = "epi">
+      <select class = "sel" id = "epi">
         <option value = "on"> Enabled </option>
         <option value = "off" selected> Disabled </option>
       </select>
@@ -28,12 +28,12 @@
   </br>
   <img id="eye" src="/resources/eye.png" />
   <h3 class="label"> Color Blindness Adjustments
-      <select id = "cb">
+      <select class = "sel" id = "cb">
         <option value = "on" id = "choice"> Enabled </option>
         <option value = "off" id = "choice" selected> Disabled </option>
       </select>
     </h3>
-  <h6> Makes colors more identifiable for common types of colorblindness  </h6>
+  <h6 id = "cbs"> Makes colors more identifiable for common types of colorblindness  </h6>
 </div>
 </br></br>
 
@@ -49,11 +49,14 @@
 
 
 
+
 </br>
 <div id="confirm">
   <div id="status"></div>
   <button id="save">Save</button>
 </div>
+<script src="/libs/jquery-3.2.1.min.js"></script>
+
 <script src="settings.js">
 </script>
 
