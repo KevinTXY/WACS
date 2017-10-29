@@ -1,15 +1,15 @@
 function save_options(){
-  var epichoice = document.getElementById('epi').value;
-  var cbchoice = document.getElementById('cb').value;
-  var iichoice = document.getElementById('ii').value;
-  var iechoice = document.getElementById('ie').value;
-  var cwchoice = document.getElementById('cw').value;
+  var gifstop = document.getElementById('gifstop').value; //Epilepsy
+  var color = document.getElementById('color').value; //Color Blindness
+  var ptsdtext = document.getElementById('ptsdtext').value; // PTSD Text Box
+  var ptsdbox = document.getElementById('ptsdbox').value; // PTSD Enable/Disable
+  var caption = document.getElementById('caption').value; //Caption Writer
   chrome.storage.sync.set({
-    myepichoice: epichoice,
-    mycbchoice: cbchoice,
-    myiichoice: iichoice,
-    myiechoice: iechoice,
-    mycwchoice: cwchoice
+    gifstopchoice: gifstop,
+    colorchoice: color,
+    ptsdtextinput: ptsdtext,
+    ptsdboxchoice: ptsdbox,
+    captionchoice: caption
   }, function(){
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
@@ -21,17 +21,17 @@ function save_options(){
 
 function restore_options(){
   chrome.storage.sync.get({
-    myepichoice: 'disabled',
-    mycbchoice: 'disabled',
-    myiichoice: '',
-    myiechoice: 'disabled',
-    mycwchoice: 'disabled'
+    gifstopchoice: 'disabled',
+    colorchoice: 'disabled',
+    ptsdtextinput: '',
+    ptsdboxchoice: 'disabled',
+    captionchoice: 'disabled'
   }, function(items){
-  document.getElementById('epi').value = items.myepichoice;
-  document.getElementById('cb').value = items.mycbchoice;
-  document.getElementById('ii').value = items.myiichoice;
-  document.getElementById('ie').value = items.myiechoice;
-  document.getElementById('cw').value = items.mycwchoice;
+  document.getElementById('gifstop').value = items.gifstopchoice;
+  document.getElementById('color').value = items.colorchoice;
+  document.getElementById('ptsdtext').value = items.ptsdtextinput;
+  document.getElementById('ptsdbox').value = items.ptsdboxchoice;
+  document.getElementById('caption').value = items.captionchoice;
   });
 }
 
