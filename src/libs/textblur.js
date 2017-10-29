@@ -1,5 +1,6 @@
 $( document ).ready(function() {
-    $('p:contains(gun)').each(function(){
+
+    $('p:contains("gun")').each(function(){
         $(this).css({"color": "transparent", "text-shadow": "0 0 30px rgba(0,0,0,1)"});
     });
 
