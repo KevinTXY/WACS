@@ -1,9 +1,9 @@
 function save_options(){
-  var epichoice = document.getElementById('epi').value;
-  var cbchoice = document.getElementById('cb').value;
-  var iichoice = document.getElementById('ii').value;
-  var iechoice = document.getElementById('ie').value;
-  var cwchoice = document.getElementById('cw').value;
+  var epichoice = document.getElementById('epi').value; //Epilepsy
+  var cbchoice = document.getElementById('cb').value; //Color Blindness
+  var iichoice = document.getElementById('ii').value; // PTSD Text Box
+  var iechoice = document.getElementById('ie').value; // PTSD Enable/Disable
+  var cwchoice = document.getElementById('cw').value; //Caption Writer
   chrome.storage.sync.set({
     myepichoice: epichoice,
     mycbchoice: cbchoice,
