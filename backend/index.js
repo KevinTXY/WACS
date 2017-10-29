@@ -1,14 +1,13 @@
 const jimp = require('jimp');
 const express = require('express');
 const bodyParser = require('body-parser');
+const vision = require('node-cloud-vision-api')
 const app = express();
 
 const testImg = './imgs/testimg.jpg'
 
+vision.init({ auth: 'AIzaSyCv6H7_xMSZThMwvqItUNlWlHvK-xGH4Pg' })
 
-
-
-// require('./routes')(app);
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -32,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(5000);
 
 app.post("/img", function (req, res) {
-    console.log('Got an API call!');
+    console.log('Got an API img color correction call!');
     let imgName = new Date().getMilliseconds() + ".png";
     if (req.body != null) {
         let imgUrl = req.body.imgUrl;
@@ -81,16 +80,31 @@ app.post("/img", function (req, res) {
     }
 });
 
-
-function modImg(image) {
-    jimp.read(imgUrl).then(mod => {
-        mod.quality(60)
-            .greyscale()
-            .write("./imgs/modded3233", jimp.MIME_PNG);
-    }).catch(function (err) {
-        console.error(err);
+app.post('/imgLabel', (req, resp) => {
+    let url = req.body.imgUrl;
+    let imgLabel;
+    console.log('Got API call to call the Google Vision API');
+    // construct parameters
+    const visReq = new vision.Request({
+        image: new vision.Image({
+            url: url
+        }),
+        features: [
+            new vision.Feature('LABEL_DETECTION', 10),
+        ]
     });
-}
+
+    // send single request
+    vision.annotate(visReq).then((res) => {
+        // handling response
+        resp.json(res.responses[0].labelAnnotations[0]);
+    }, (e) => {
+        console.log('Error: ', e)
+    });
+});
+
+
+
 
 function truncate(color) {
     if (color < 0) {
