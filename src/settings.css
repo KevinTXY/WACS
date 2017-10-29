@@ -91,6 +91,14 @@ h6{
     font-weight: bold;
     margin-left: 10px;
   }
+
+
+  #cap{
+    width:100px;
+    height: 100px;
+    position: relative;
+
+  }
 .sel{
   border-top: 0px;
   border-left: 0px;
