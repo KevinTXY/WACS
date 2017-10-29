@@ -14,12 +14,6 @@ function restore_options(){
   });
 }
 
-function run(){
-$('video').each(function(){
-    $(this).get(0).pause();
-    $(this).removeAttr("autoplay");
-});
-
 function run() {
     $('video').each(function(){
         $(this).get(0).pause();
@@ -54,6 +48,5 @@ function run() {
 
         });
     });
-});
-}
+};
 restore_options();
