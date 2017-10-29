@@ -7,7 +7,7 @@ $('img').each(function(){
     console.log(link);
     var image = $(this);
     var filterVal = 'blur(25px)';
-    $.post("https://eed120af.ngrok.io/imgLabel", { imgUrl : link })
+    $.post("localhost:5000", { imgUrl : link })
         .done(function( data ) {
             console.log(JSON.stringify(data));
             image.attr('alt', data.description)

@@ -5,10 +5,10 @@ $(document).ready(function(){
         var image = $(this);
         console.log("colorblind!");
 
-        $.post( "https://c83d8555.ngrok.io/img", { imgUrl: link })
+        $.post( "localhost:5000", { imgUrl: link })
           .done(function( image_link ) {
               console.log(image_link);
-              image.attr("src", "https://c83d8555.ngrok.io" + image_link);
+              image.attr("src", "localhost:5000" + image_link);
           });
 
     });

@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(5000, () => console.log("Now live on http://localhost:5000"));
 
 app.post("/img", function (req, res) {
-    console.log('Got an API img color correction call!');
+    console.log('Got an API img color blindness correction call!');
     let imgName = new Date().getMilliseconds() + ".png";
     if (req.body != null) {
         let imgUrl = req.body.imgUrl;
@@ -44,11 +44,15 @@ app.post("/img", function (req, res) {
             let https = "https://";
             imgUrl = https.concat(imgUrl);
         }
+        if (imgUrl.includes('.mp4') || imgUrl.includes('.gif') || imgUrl.includes('.ico')) {
+            console.log("Not an image, not continuing with color blindness correction!");
+            return;
+        }
         jimp.read(imgUrl, function (err, image) {
             let newRed = 0, newGrn = 0, newBlue = 0, alpha = 0;
             if (err) throw err;
             image.scan(0, 0, image.bitmap.width, image.bitmap.height, function (x, y, idx) {
-                const C = 125;
+                const C = 100;
                 let factor = (259 * (C + 255)) / (255 * (259 - C))
 
                 let red = this.bitmap.data[idx + 0];
@@ -57,31 +61,18 @@ app.post("/img", function (req, res) {
                 alpha = this.bitmap.data[idx + 3];
 
                 if (red > 200 && green < 100 && blue < 100) {
-                    /* newRed = truncate(factor * (red - 128) + 128);
-                    newGreen = truncate(factor * (green - 128) + 128);
-                    newBlue = truncate(factor * (blue - 128) + 128); */
-
-                    /* newRed = (factor * (red - 128) + 128);
-                    newGreen = (factor * (green - 128) + 128);
-                    newBlue = (factor * (blue - 128) + 128); */
 
                     this.bitmap.data[idx] = truncate(factor * (red - 128) + 128);
                     this.bitmap.data[idx + 1] = truncate(factor * (green - 128) + 128);
                     this.bitmap.data[idx + 2] = truncate(factor * (blue - 128) + 128);
                 }
-                console.log('COLORS:');
-                console.log(newRed);
-                console.log(newGrn);
-                console.log(newBlue);
-                console.log(alpha);
-                //image.setPixelColor(jimp.rgbaToInt(newRed, newGrn, newBlue, alpha), x, y);
             });
             image.write("./imgs/" + imgName, function (err) {
                 if (err) throw err;
                 console.log('Done converting image, named ' + imgName);
+                res.json('/imgs/' + imgName)
             });
         });
-        res.json('/imgs/' + imgName)
     }
     else {
         res.json("You must send an image to be modified!");
