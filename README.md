@@ -14,3 +14,5 @@ Caption Writer - Runs images on a page through a Vision API to determine the con
 
 Sensitivity Filter - Takes in an input from a user and blurs out or removes content related to that input, targeting users with PTSD to create a safer browsing experience.
 Each feature can be individually enabled or disabled on a stylishly designed options page.
+
+Developers: Kevin Taha, Ryan Delap, David Shelby, Rakesh Das
